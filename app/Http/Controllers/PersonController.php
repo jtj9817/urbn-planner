@@ -14,7 +14,7 @@ class PersonController extends Controller
 
     public function getPerson($id){
         if (Person::where('id', $id)->exists()){
-            $person = Person::where('id', $id)->get()-toJson(JSON_PRETTY_PRINT);
+            $person = Person::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($person, 200);
         }
         else{

@@ -14,7 +14,7 @@ class HouseController extends Controller
 
     public function getHouse($id){
         if (House::where('id', $id)->exists()){
-            $house = House::where('id', $id)->get()-toJson(JSON_PRETTY_PRINT);
+            $house = House::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($house, 200);
         }
         else{

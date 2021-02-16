@@ -14,7 +14,7 @@ class CarController extends Controller
 
     public function getCar($id){
         if (Car::where('id', $id)->exists()){
-            $car = Car::where('id', $id)->get()-toJson(JSON_PRETTY_PRINT);
+            $car = Car::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($car, 200);
         }
         else{

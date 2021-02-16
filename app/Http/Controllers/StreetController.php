@@ -14,7 +14,7 @@ class StreetController extends Controller
 
     public function getStreet($id){
         if (Street::where('id', $id)->exists()){
-            $street = Street::where('id', $id)->get()-toJson(JSON_PRETTY_PRINT);
+            $street = Street::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($street, 200);
         }
         else{

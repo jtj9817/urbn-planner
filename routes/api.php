@@ -23,42 +23,42 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //City Routes
-Route::get('cities', 'CityController@getAllCities');
-Route::get('cities/{id}', 'CityController@getCity');
-Route::post('cities', 'CityController@createCity');
-Route::put('cities/{id}', 'CityController@updateCity');
-Route::delete('cities/{id}', 'CityController@deleteCity');
+Route::get('cities', [CityController::class, 'getallCities']);
+Route::get('cities/{id}', [CityController::class, 'getCity']);
+Route::post('cities', [CityController::class, 'createCity']);
+Route::put('cities/{id}',  [CityController::class,'updateCity']);
+Route::delete('cities/{id}',  [CityController::class,'deleteCity']);
 
 //Street Routes
-Route::get('streets', 'StreetController@getAllstreets');
-Route::get('streets/{id}', 'StreetController@getStreet');
-Route::post('streets', 'StreetController@createStreet');
-Route::put('streets/{id}', 'StreetController@updateStreet');
-Route::delete('streets/{id}', 'StreetController@deleteStreet');
+Route::get('streets', [StreetController::class, 'getallCities']);
+Route::get('streets/{id}', [StreetController::class, 'getStreet']);
+Route::post('streets', [StreetController::class, 'createStreet']);
+Route::put('streets/{id}',  [StreetController::class,'updateStreet']);
+Route::delete('streets/{id}',  [StreetController::class,'deleteStreet']);
 
 //House Routes
-Route::get('houses', 'HouseController@getAllHouses');
-Route::get('houses/{id}', 'HouseController@getHouse');
-Route::post('houses', 'HouseController@createHouse');
-Route::put('houses/{id}', 'HouseController@updateHouse');
-Route::delete('houses/{id}', 'HouseController@deleteHouse');
+Route::get('houses', [HouseController::class, 'getallCities']);
+Route::get('houses/{id}', [HouseController::class, 'getHouse']);
+Route::post('houses', [HouseController::class, 'createHouse']);
+Route::put('houses/{id}',  [HouseController::class,'updateHouse']);
+Route::delete('houses/{id}',  [HouseController::class,'deleteHouse']);
 
 //Person Routes 
-Route::get('person', 'PersonController@getAllPersons');
-Route::get('person/{id}', 'PersonController@getPerson');
-Route::post('person', 'PersonController@createPerson');
-Route::put('person/{id}', 'PersonController@updatePerson');
-Route::delete('person/{id}', 'PersonController@deletePerson');
+Route::get('persons', [PersonController::class, 'getallCities']);
+Route::get('persons/{id}', [PersonController::class, 'getPerson']);
+Route::post('persons', [PersonController::class, 'createPerson']);
+Route::put('persons/{id}',  [PersonController::class,'updatePerson']);
+Route::delete('persons/{id}',  [PersonController::class,'deletePerson']);
 
 //Car Routes
-Route::get('cars', 'CarController@getAllCars');
-Route::get('cars/{id}', 'CarController@getCar');
-Route::post('cars', 'CarController@createCar');
-Route::put('cars/{id}', 'CarController@updateCar');
-Route::delete('cars/{id}', 'CarController@deleteCar');
+Route::get('cars', [CarController::class, 'getallCities']);
+Route::get('cars/{id}', [CarController::class, 'getCar']);
+Route::post('cars', [CarController::class, 'createCar']);
+Route::put('cars/{id}',  [CarController::class,'updateCar']);
+Route::delete('cars/{id}',  [CarController::class,'deleteCar']);
 
 //CityData Routes 
-Route::get('getCityPeople/{city_name}', 'CityDataController@getCityPeople');
-Route::get('getCars/{street_name}', 'CityDataController@getCars');
-Route::get('getVehiclerOwner/{license_plate}', 'CityDataController@getVehicleOwners');
-Route::get('getHouseDetails/{first_name}/{last_name}/{age}', 'CityDataController@getHouseDetails');
+Route::get('getCityPeople/{city_name}', [CityDataController::class, 'getCityPeople']);
+Route::get('getCars/{street_name}', [CityDataController::class, 'getCars']);
+Route::get('getVehiclerOwner/{license_plate}', [CityDataController::class, 'getVehicleOwners']);
+Route::get('getHouseDetails/{first_name}/{last_name}/{age}',  [CityDataController::class,'getHouseDetails']);

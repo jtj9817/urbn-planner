@@ -14,7 +14,7 @@ class CityController extends Controller
 
     public function getCity($id){
         if (City::where('id', $id)->exists()){
-            $city = City::where('id', $id)->get()-toJson(JSON_PRETTY_PRINT);
+            $city = City::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($city, 200);
         }
         else{
