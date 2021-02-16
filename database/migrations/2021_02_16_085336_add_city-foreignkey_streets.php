@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCityStreetsTable extends Migration
+class AddCityForeignkeyStreets extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateCityStreetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('city_streets', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->timestamps();
+        Schema::table('streets', function (Blueprint $table) {
+            $table->bigInteger('city_id')->unsigned();
+            $table->foreign('city_id')
+                    ->references('id')
+                    ->on('cities')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
         });
-        //
     }
 
     /**
