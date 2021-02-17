@@ -58,7 +58,7 @@ Route::put('cars/{id}',  [CarController::class,'updateCar']);
 Route::delete('cars/{id}',  [CarController::class,'deleteCar']);
 
 //CityData Routes 
-Route::get('getCityPeople/{city_name}', [CityDataController::class, 'getCityPeople']);
-Route::get('getCars/{street_name}', [CityDataController::class, 'getCars']);
-Route::get('getVehiclerOwner/{license_plate}', [CityDataController::class, 'getVehicleOwners']);
-Route::get('getHouseDetails/{first_name}/{last_name}/{age}',  [CityDataController::class,'getHouseDetails']);
+Route::get('getCityPeople', [CityDataController::class, 'getCityPeople']);
+Route::get('getCars', [CityDataController::class, 'getCars']);
+Route::get('getVehicleOwners', [CityDataController::class, 'getVehicleOwners']);
+Route::get('getHouseDetails',  [CityDataController::class,'getHouseDetails']);

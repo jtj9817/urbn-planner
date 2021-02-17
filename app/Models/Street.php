@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Street extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'city_id'];
+
+    public function houses(){
+        return $this->hasMany(House::class);
+    }
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
 }
