@@ -29,6 +29,7 @@ class CarController extends Controller
         $car->license_plate = $request->license_plate;
         $car->color = $request->color;
         $car->brand = $request->brand;
+        $car->house_id = $request->house_id;
         $car->save();
 
         return response()->json([
@@ -43,6 +44,7 @@ class CarController extends Controller
             $car->license_plate = is_null($request->license_plate) ? $car->license_plate : $request->license_plate;
             $car->color = is_null($request->color) ? $car->color : $request->color;
             $car->brand = is_null($request->brand) ? $car->brand : $request->brand;
+            $car->house_id = is_null($request->house_id) ? $car->house_id : $request->house_id;
             $car->save();
             
             return response()->json([

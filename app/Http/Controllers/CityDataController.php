@@ -58,7 +58,6 @@ class CityDataController extends Controller
                         ->limit(10)
                         ->get();
         return response($cars, 200);
-
     }
 
     //Fetch the owners of a vehicle when providing a license plate.

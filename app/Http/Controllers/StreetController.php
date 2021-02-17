@@ -27,7 +27,7 @@ class StreetController extends Controller
     public function createStreet(Request $request){
         $street = new Street;
         $street->name = $request->name;
-
+        $street->city_id = $request->city_id;
         $street->save();
 
         return response()->json([
@@ -39,6 +39,7 @@ class StreetController extends Controller
         if (Street::where('id', $id)->exists()){
             $street = Street::find($id);
             $street->name = is_null($request->name) ? $street->name : $request->name;
+            $street->city_id = is_null($request->city_id) ? $street->city_id : $request->city_id;
             $street->save();
             
             return response()->json([

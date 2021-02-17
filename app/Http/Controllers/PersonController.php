@@ -29,6 +29,7 @@ class PersonController extends Controller
         $person->first_name = $request->first_name;
         $person->last_name = $request->last_name;
         $person->age = $request->age;
+        $person->house_id = $request->house_id;
         $person->save();
 
         return response()->json([
@@ -43,6 +44,7 @@ class PersonController extends Controller
             $person->first_name = is_null($request->first_name) ? $person->first_name : $request->first_name;
             $person->last_name = is_null($request->last_name) ? $person->last_name : $request->last_name;
             $person->age = is_null($request->age) ? $person->age : $request->age;
+            $person->house_id = is_null($request->house_id) ? $person->house_id : $request->house_id;
             $person->save();
             
             return response()->json([

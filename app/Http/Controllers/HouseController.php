@@ -27,6 +27,7 @@ class HouseController extends Controller
     public function createHouse(Request $request){
         $house = new House;
         $house->address = $request->address;
+        $house->street_id = $request->street_id;
         $house->save();
 
         return response()->json([
@@ -39,6 +40,7 @@ class HouseController extends Controller
         if (House::where('id', $id)->exists()){
             $house = House::find($id);
             $house->address = is_null($request->address) ? $house->address : $request->address;
+            $house->street_id = is_null($request->street_id) ? $house->street_id : $request->street_id;
             $house->save();
             
             return response()->json([
