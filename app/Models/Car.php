@@ -11,7 +11,7 @@ class Car extends Model
 
     protected $fillable = ['license_plate', 'brand', 'color', 'person_id'];
 
-    public function person(){
-        return $this->belongsTo(Person::class);
+    public function household(){
+        return $this->belongsTo(House::class);
     }
 }

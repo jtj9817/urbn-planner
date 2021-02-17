@@ -17,4 +17,10 @@ class House extends Model
     public function street(){
         return $this->belongsTo(Street::class);
     }
+
+    //Special relationship with Car class 
+    //A household is only allowed 1 car
+    public function householdCar(){
+      return $this->hasOne(Car::class);
+    }
 }

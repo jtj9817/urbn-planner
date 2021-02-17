@@ -50,11 +50,8 @@ class CityDataController extends Controller
         $street_name = $request->street_name;
         $cars = DB::table('streets')
                         ->join('houses', 'streets.id', '=', 'houses.street_id')
-                        ->join('people', 'houses.id', '=', 'people.house_id')
-                        ->join('cars', 'people.id','=', 'cars.person_id')
+                        ->join('cars', 'houses.id','=', 'cars.house_id')
                         ->select('streets.name as Street Name', 
-                        'people.first_name as Owner First Name',
-                        'people.last_name as Owner Last Name',
                         'cars.license_plate as License Plate'
                         )
                         ->where('streets.name', '=', $street_name)
@@ -68,19 +65,20 @@ class CityDataController extends Controller
     public function getVehicleOwners(Request $request){
         $license_plate = $request->license_plate;
         echo($license_plate);
-        $owners = DB::table('cars')
-                        ->join('people', 'cars.person_id', '=', 'people.id')
-                        ->join('houses', 'people.house_id', '=', 'houses.id')
+        $household = DB::table('cars')
+                        ->join('houses', 'cars.house_id', '=', 'houses.id')
+                        ->join('people', 'people.house_id', '=', 'houses.id')
                         ->select(
                             'people.first_name as Owner First Name',
                             'people.last_name as Owner Last Name',
-                            'cars.license_plate as License Plate'
+                            'cars.license_plate as License Plate',
+                            'houses.address as Address'
                         )
                         ->where('cars.license_plate', '=', $license_plate)
-                        ->limit(10)
+                        ->limit(5)
                         ->get();
         //$household = DB::table
-        return response($owners, 200);
+        return response($household, 200);
     }
 
     //Fetch the full address and street of a house when providing a person's name
